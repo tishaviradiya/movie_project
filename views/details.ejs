@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #495057;
+        }
+        header {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        form {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 65%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #dee2e6;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #343a40;
+            color: #fff;
+        }
+        select, input[type="text"], textarea, input[type="datetime-local"], input[type="file"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="checkbox"], input[type="radio"] {
+            margin-right: 5px;
+        }
+        input[type="submit"] {
+            background-color: #343a40;
+            color: #fff;
+            cursor: pointer;
+            width: 110px;
+        }
+        input[type="submit"]:hover {
+            background-color: #23272b;
+        }
+        h1 a{
+            text-decoration: none;
+            color: rgb(33, 124, 205);
+        }
+        h1 a:hover{
+            box-shadow: 1px 1px 1px 1px white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <h1>LOGO</h1>
+            <h1>Movie</h1>
+            <h1><a href="/homePage">Back</a></h1>
+        </div>
+        <h1>Add Movie Details</h1>
+    </header> 
+    <form action="/homePage/addDetails" method="post" enctype="multipart/form-data">
+        <table align="center" border="1">
+            <tr>
+                <td>Title</td>
+                <td><input type="text" name="title"></td>
+            </tr>
+            <tr>
+                <td>Director</td>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <% let rating=['1','2','3','4','5','6','7','8','9',10]%>
+            <tr>
+                <td>Rating</td>
+                <td><select name="rating">
+                    <option value="">--Rating--</option>
+                    <% rating.forEach((v)=>{%>
+                        <option value="<%= v%>"><%= v%></option>
+                        <% })%>
+                </select></td>
+            </tr>
+            <tr>
+                <td>Actors</td>
+                <td><input type="text" name="actorname"></td>
+            </tr>
+            <tr>
+                <td>Plot</td>
+                <td><textarea name="plot"></textarea></td>
+            </tr>
+            <tr>
+                <td>Types</td>
+                <td><input type="radio" name="types" value="action">Action
+                    <input type="radio" name="types" value="thriller">Thriller
+                    <input type="radio" name="types" value="mystery">Mystery
+                    <input type="radio" name="types" value="comedy">Comedy
+                    <input type="radio" name="types" value="horror">Horror
+                    <input type="radio" name="types" value="drama">Drama
+                    <input type="radio" name="types" value="history">History
+                    <input type="radio" name="types" value="fantasy">Fantasy</td>
+            </tr>
+            <tr>
+                <td>Screen Type</td>
+                <td><input type="radio" name="screen" value="1d">1d
+                    <input type="radio" name="screen" value="2d">2d
+                    <input type="radio" name="screen" value="3d">3d</td>
+            </tr>
+            <tr>
+                <td>Languages</td>
+                <td><input type="checkbox" name="language" value="english">English
+                    <input type="checkbox" name="language" value="gujarati">Gujarati
+                    <input type="checkbox" name="language" value="hindi">Hindi
+                    <input type="checkbox" name="language" value="kannad">Kannad
+                    <input type="checkbox" name="language" value="telugu">Telugu
+                    <input type="checkbox" name="language" value="marathi">Marathi</td>
+            </tr>
+            <tr>
+                <td>Released Date</td>
+                <td><input type="datetime-local" name="date"></td>
+            </tr>
+            <tr>
+                <td>Image</td>
+                <td><input type="file" name="image"></td>
+            </tr>
+            <tr>
+                <td>Submit</td>
+                <td><input type="submit" value="Add"></td>
+            </tr>
+        </table>
+        <h1><a href="/homePage/detailsShow">Details</a></h1>
+    </form>
+</body>
+</html>

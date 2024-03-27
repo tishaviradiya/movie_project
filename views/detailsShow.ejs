@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>detailsShow page</title>
+    <style>
+        body{
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #495057;
+        }
+        a {
+            text-decoration: none;
+            color: #3498db;
+            padding: 10px;
+            display: inline-block;
+            margin: 20px;
+            border: 1px solid #3498db;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        .details {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .display {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin-top: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .table {
+            margin: 10px;
+        }
+
+        .display-data {
+            width: 70%;
+            padding: 20px;
+        }
+
+        img {
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        h1 {
+            color: #3498db;
+        }
+
+        h2, h3 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        h3 {
+            margin: 0;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="/homePage">Back</a>
+   <div class="details">
+    <h1> Movie Details Page</h1>
+    <% for(var d of detailsData){%>  
+        <div class="display">
+            <div class="table">
+                <img src="<%= d.image%>" alt="movie.image" width="500" height="500">
+            </div>
+                <div class="display-data">
+                    <div class="table">
+                        <h2>Title :<%= d.title%></h2>
+                    </div>
+                    <div class="table">
+                        <h2>Director :</h2><h3><%= d.name%></h3>
+                    </div>
+                    <div class="table">
+                        <h2>Rating :<%= d.rating%></h2>
+                    </div>
+                    <div class="table">
+                        <h2>Actor :</h2><h3><%= d.actorname%></h3>
+                    </div>
+                    <div class="table">
+                        <h2>Plot: <%= d.plot%></h2>
+                    </div>
+                    <div class="table">
+                        <h2>Types :<%= d.types%></h2>
+                    </div>
+                    <div class="table">
+                        <h2>Screen :<%= d.screen%></h2>
+                    </div>
+                    <div class="table">
+                        <h2>Language :<%= d.language%></h2>
+                    </div>
+                    <div class="table">
+                        <h2>Date :<%= d.date%></h2>
+                    </div>
+                </div>
+        </div>    
+        <% }%>
+   </div>
+</body>
+</html>
